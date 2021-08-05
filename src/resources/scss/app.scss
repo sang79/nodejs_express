@@ -1,0 +1,16 @@
+
+// có 1 phần cần lưu ý ở đây là ban đầu nó cài node-sass và đưa vào script ở phần package.json để compile từ scss sang css, với synt như bên đó, nhưng có vấn đề là cứ mỗi lần save thay đổi bên file scss thì cần phải chayj lại ở phần terminal, để tiện hơn, ta thêm vào --watch hay shorthand là -w, như vậy mỗi lần save lầ nó tự động up lại, nhưng có vấn đề nữa lầ ở 1 số máy hay vscode có vấn đề là save thif nó đưa lỗi status:3, nên thử nhiều cách khác vẫn o dc, nó theo cách là cài sass thay vì node-sass thì ok!
+
+// sử dụng sass thay vì node-sass vẫn có điểm hay nữa là khi có nhiều file scss như file app.sscs có những file import như _variables hoặc nhiều file khác nữa dc import vào, thì cứ mỗi lẫn save ở những file đó thì nó sẽ tự động cập nhật thay vì phải save lại ở file gốc , nó sẽ tự động lưu lại 
+@import 'variables';
+body
+{
+    font-family: serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+h2 {
+    color: $green-color;
+    font-size: 24px;
+    font-weight: 600;
+}

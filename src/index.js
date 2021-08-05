@@ -5,7 +5,8 @@ const handlebars  = require('express-handlebars');
 const app = express();
 const port = 3000;
 // 1  lỗi cơ bản khi sử dụng nodeman, nếu chỉ sử đụng nó cho dev, với synt npm i nodemon --save-dev thay vì global như npm i -g nodemon@2.0.7 thì nó ko hoạt động, cái này có thể gặp ở những trường hợp khi ta sử dụng những gói khá trên dev thay vì cài vào code !
-
+app.use(express.static(path.join(__dirname, "public")));
+// phần này với mục đích tạo những file tĩnh-static, hay ở đây đơn giản là connect với việc tải hay nhận ảnh, từ thư mục phublic, và dĩ nhiên la cả với những folder hay filr khác năm trong thăng public
 
   // HTTH LOGGER
 app.use(morgan('combined'));
@@ -21,6 +22,7 @@ app.engine('hbs', handlebars({
   extname: '.hbs'
 }));
 app.set('view engine', 'hbs');
+// console.log(__dirname);
 app.set('views', path.join(__dirname, 'resources/views'));  
 app.get('/', (req, res) => {
   res.render('home');
