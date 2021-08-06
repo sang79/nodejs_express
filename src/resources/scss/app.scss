@@ -3,14 +3,3 @@
 
 // sử dụng sass thay vì node-sass vẫn có điểm hay nữa là khi có nhiều file scss như file app.sscs có những file import như _variables hoặc nhiều file khác nữa dc import vào, thì cứ mỗi lẫn save ở những file đó thì nó sẽ tự động cập nhật thay vì phải save lại ở file gốc , nó sẽ tự động lưu lại 
 @import 'variables';
-body
-{
-    font-family: serif;
-    font-size: 14px;
-    font-weight: 500;
-}
-h2 {
-    color: $green-color;
-    font-size: 24px;
-    font-weight: 600;
-}

@@ -1,0 +1,8 @@
+file này với mục đích thi thoảng ghi chú lại để nhớ, sau này đọc thêm!
+
+
+việc tạo file nodemon.json bên dưới là nhằm đưa vào file các phần đuôi bổ sung mà nodemon cần xem, mỗi lần npm start theo dỗi phần nodemon là sẽ hiểu, nó sẽ watcj những file có phần đuôi hya ext ta cấp, và phần file này chỉ cần tự động tạo ra, lưu lại là nodemon tự hiểu mà o cần àm gì thêm hay liên kết vào đâu khác!
+
+1 phần nữa về query parameters là phwong thức thường thấy khi ta thưc hiện tìm kiếm trên thanh url, ví dụ như trong tìm kiếm ở google, thì cứ mỗi lần tk trên thanh công cu của google thì nó sẽ điều hướng sang 1 đoạn string ví dụ như http://google.com/search?q=lap%20trinh&ref=javascript&author=sang rồi mới thực hieenjj tìm kiếm trên sserve, và query parameters ở đây với các params bắt đầu bằng dấu ? va ngay đằng sau nó là query, tư paaram thứ 2 trở đi nó đứng đằng sau &
+
+trong phần method post thì thông tin khoing chứa trong string query như bên phần get, mà chứa trong formdata và thuộc dạng thông tin cá nhân nên nó không show ra trên url

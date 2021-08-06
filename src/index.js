@@ -4,12 +4,27 @@ const morgan = require('morgan');
 const handlebars  = require('express-handlebars');
 const app = express();
 const port = 3000;
+
+const route = require('./routes');
+// trong các trường hợp mặc định thường server sẽ tự động truy cập vào các folder dc gọi, giả sử như folder routes trên vaf nếu không có gì thêm thì nó sẽ tự động truy cập vào fule index,js của mỗi folder
+
+route(app);
+
 // 1  lỗi cơ bản khi sử dụng nodeman, nếu chỉ sử đụng nó cho dev, với synt npm i nodemon --save-dev thay vì global như npm i -g nodemon@2.0.7 thì nó ko hoạt động, cái này có thể gặp ở những trường hợp khi ta sử dụng những gói khá trên dev thay vì cài vào code !
 app.use(express.static(path.join(__dirname, "public")));
 // phần này với mục đích tạo những file tĩnh-static, hay ở đây đơn giản là connect với việc tải hay nhận ảnh, từ thư mục phublic, và dĩ nhiên la cả với những folder hay filr khác năm trong thăng public
 
   // HTTH LOGGER
-app.use(morgan('combined'));
+
+  app.use(morgan('combined'));
+
+  app.use(express.urlencoded({   //url này đơn giản lầ midđleware
+    extended: true
+  }));
+  // body-parser deprecated undefined extended báo lỗi này, ta làm như trên thì sẽ xóa dc lỗi báo này!
+  // trong phần method post khác với method get là ta ko thể lấy trực tiếp giá trị mà user nhập vào form vì nó phải thông qua 1 phần trung gian là middleware, nên lệnh trên laf để đưa phần đó vào!
+  app.use(express.json());
+// gửi data từ js code lên server 
 // sư dụng thằng morgan ở đây để nó thông báo bên dưới termianl cho ta những thông số thường thấy trong f12, tương tự như phần responsive trả về 200 hay 304, nói gọn là nó cho phép ta suy đoán, và biết dc khi nào nó lỗi hay không, vì ko phải lúc nào nó cũng show ra, có thể trên trình duyệt nó xoay mãi k show ra j!
 
 // TEMPLATE ENGINES
@@ -24,12 +39,6 @@ app.engine('hbs', handlebars({
 app.set('view engine', 'hbs');
 // console.log(__dirname);
 app.set('views', path.join(__dirname, 'resources/views'));  
-app.get('/', (req, res) => {
-  res.render('home');
-})
-app.get('/news', (req, res) => {
-  res.render('news');
-})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
