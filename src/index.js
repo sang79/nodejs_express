@@ -7,6 +7,9 @@ const port = 3000;
 
 const route = require('./routes');
 // trong các trường hợp mặc định thường server sẽ tự động truy cập vào các folder dc gọi, giả sử như folder routes trên vaf nếu không có gì thêm thì nó sẽ tự động truy cập vào fule index,js của mỗi folder
+const db = require('./config/db');
+db.connect();
+// connect db
 
 route(app);
 
@@ -38,7 +41,7 @@ app.engine('hbs', handlebars({
 }));
 app.set('view engine', 'hbs');
 // console.log(__dirname);
-app.set('views', path.join(__dirname, 'resources/views'));  
+app.set('views', path.join(__dirname, 'resources', 'views'));  
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
