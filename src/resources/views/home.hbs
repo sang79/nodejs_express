@@ -1,1 +1,25 @@
-<h1>Home Page</h1>
+<div class="mt-4">
+    <div class="row">
+        {{#each courses}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card mt-4">
+                <a href="/courses/{{this.slug}}">
+                    <img src={{this.image}} class="card-img-top img-fluid img-thumbnail" alt={{this.name}}>
+                </a>
+                {{!-- <img src={{this.image}} class="card-img-top" alt={{this.title}}> ở đây khi render ra xuất hiện
+                lỗi, vì với hững ver sau thì những key và value trong obj được viết trong prototype nên ko thể truy
+                cập trực tiếp vào bằng this.key như với obj thông thường, nên bên phía SiteControllers ta chuyển obj
+                trong constructor thành obj thông thường bằng toObject khi map từng phần tử tỏng nó ra --}}
+                
+                <div class="card-body">
+                    <a href="/courses/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Buy Course</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,6 +1,7 @@
 
 const newsRouter = require('./news');
 const siteRouter = require('./site');
+const coursesRouter = require('./courses');
 
 function route(app) {
 
@@ -14,6 +15,7 @@ function route(app) {
     app.use('/news', newsRouter);
     app.use('/', siteRouter);
     app.use('/search', siteRouter);
+    app.use('/courses', coursesRouter);
     // app.get('/search', (req, res) => {
     //     // console.log(req.query); ở đây trên phần url mà users nhập vào thì nó trả về 1 obj, với những thông rin mà ta nhập được đưa vào query trong request
     //     res.render('search');
