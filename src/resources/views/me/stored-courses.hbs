@@ -1,0 +1,32 @@
+<div class="mt-4">
+    <div class="row">
+        <h3>My Courses</h3>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name Course</th>
+                    <th scope="col">Level</th>
+                    <th scope="col" colspan="2">Create At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each courses}}
+                <tr>
+                    <th scope="row">{{sum @index 1}}</th>
+                    {{!-- thằng sum trên là func được viết lại bên phía file index, nhằm tạo phần index trong bảng của My Courses, do index bắt đầu từ 0 nên ở đây ta tạo func sum với mục đích + thêm 1, với @index và 1 lần lượt là 2 đối số a và b trong func sum dc viết tong file index tổng! --}}
+                    <td>{{this.name}}</td>
+                    <td> {{this.level}} </td>
+                    <td> {{this.createdAt}} </td>
+                    <td>
+                        <a href="/courses/{{this._id}}/edit" class="btn btn-link">Edit</a>
+                        <a href="#" class="btn btn-link">Delete</a>
+                    </td>
+                    {{!-- <td>
+                    </td> --}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

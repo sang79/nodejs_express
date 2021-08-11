@@ -1,14 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="/">Blog Express NodeJs</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-        <a class="nav-link active" aria-current="page" href="/courses/create">Add Courses</a>
-      </div>
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="/courses/create">Add Courses</a>
+      <a class="nav-link active" aria-current="page" href="/me/stored/courses">My Courses</a>
+      {{!-- chú ý những đường dẫn với những thằng tách biệt như 2 thằng trên thì phải nhớ dấu / đằng trc, ví dụ như ban đầu ở thằng me quên bỏ vào / thì ví dụ khi đang ở courses/create mà click qua me.stored-course thì nó sẽ nối tiếp thành course/create/me/stored-course... nê n lưu ý những thằng này! --}}
+      <a class="nav-link active" aria-current="page" href="me/stored/courses">Log out</a>
     </div>
+  </div>
   </div>
 </nav>

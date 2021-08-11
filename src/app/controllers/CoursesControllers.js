@@ -19,12 +19,23 @@ class CoursesControllers {
     store(req, res, next) {
         const formData = req.body;
         formData.image = `https://img.youtube.com/vi/${req.body.videoId}/sddefault.jpg`;
-        const course = new Course(req.body);
+        const course = new Course(formData);
         course.save()
             .then(() => res.redirect('/'))
             .catch(err => {
 
             });
+    }
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+        .then(course => {
+            res.render('courses/edit', { course: mongooseToObject(course) });
+        })
+        .catch(next);
+    }
+    // put method update couses:id
+    update(req, res, next) {
+       res.json(req.body);
     }
 }
 module.exports = new CoursesControllers;

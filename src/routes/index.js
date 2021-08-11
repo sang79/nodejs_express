@@ -1,6 +1,7 @@
 
 const newsRouter = require('./news');
 const siteRouter = require('./site');
+const meRouter = require('./me');
 const coursesRouter = require('./courses');
 
 function route(app) {
@@ -13,6 +14,7 @@ function route(app) {
     //     res.render('news');
     //   }) viết mới lại sau khi cấu hình route theo chuẩn mvc
     app.use('/news', newsRouter);
+    app.use('/me', meRouter);
     app.use('/', siteRouter);
     app.use('/search', siteRouter);
     app.use('/courses', coursesRouter);
