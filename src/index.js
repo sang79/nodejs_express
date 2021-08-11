@@ -5,6 +5,11 @@ const handlebars  = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+const bodyParser  = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+// 3 dòng này để parse phần req.body, trong phần create new courses, sau khi đưa dc dữ liệu admin text vào các field ở course/create thì ta có vấn đề là req.body underfined, lỗi này do thiếu 3 thằng này gây ra, cụ thể là nó không gửi dc data trong formData lên server được, nên tạo ra course rỗng, nếu chỉ có mỗi app.use(express.json()) thì nó chỉ show ra mỗi videoId, còn thêm vào 2 thằng sau thì mới thêm dc toàn bộ, nếu không có cả 3 thằng, thì nó báo lỗi underfine của thằng videoId;
+
 const route = require('./routes');
 // trong các trường hợp mặc định thường server sẽ tự động truy cập vào các folder dc gọi, giả sử như folder routes trên vaf nếu không có gì thêm thì nó sẽ tự động truy cập vào fule index,js của mỗi folder
 const db = require('./config/db');
